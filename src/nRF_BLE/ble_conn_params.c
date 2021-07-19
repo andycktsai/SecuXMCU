@@ -51,6 +51,8 @@
 #include "app_timer.h"
 #include "app_util.h"
 
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
 
 #define NRF_BLE_CONN_PARAMS_INSTANCE_COUNT  NRF_SDH_BLE_PERIPHERAL_LINK_COUNT   //!< The number of @ref ble_conn_params_instance_t instances kept by the conn_params module.
 
@@ -516,6 +518,7 @@ static void on_conn_params_update(ble_evt_t const * p_ble_evt)
  */
 static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
 {
+    NRF_LOG_INFO("ble_evt_handler evt=%u ",p_ble_evt->header.evt_id);
     switch (p_ble_evt->header.evt_id)
     {
         case BLE_GAP_EVT_CONNECTED:

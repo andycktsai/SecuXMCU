@@ -62,6 +62,8 @@
 #include "crc16.h"
 #endif
 
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
 
 static void fs_event_handler(nrf_fstorage_evt_t * evt);
 
@@ -1646,6 +1648,7 @@ static void flash_bounds_set(void)
     uint32_t flash_size  = (FDS_PHY_PAGES * FDS_PHY_PAGE_SIZE * sizeof(uint32_t));
     m_fs.end_addr   = flash_end_addr();
     m_fs.start_addr = m_fs.end_addr - flash_size;
+	NRF_LOG_INFO("fds : 0x%5x~0x%5x", m_fs.start_addr, m_fs.end_addr);
 }
 
 

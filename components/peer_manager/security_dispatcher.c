@@ -1049,6 +1049,7 @@ void smd_ble_evt_handler(ble_evt_t const * p_ble_evt)
             break;
 
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
+            NRF_LOG_INFO("jkskskkk");
             sec_params_request_process(&(p_ble_evt->evt.gap_evt));
             break;
 
