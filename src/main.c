@@ -82,7 +82,7 @@ int main(void)
     clock_initialization();
     gpio_init();
     power_management_init();
-    init_fstorage();
+    init_fstorage();	// Must call before the ble_init().
     
     ble_init();
 	wdt_init();
