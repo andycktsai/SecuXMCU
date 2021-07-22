@@ -80,6 +80,7 @@ int main(void)
     // Start internal LFCLK XTAL oscillator - it is needed by BSP to handle
     // buttons with the use of APP_TIMER 
     clock_initialization();
+    NRF_LOG_INFO("----- Hello SecuX -----------------------");
     gpio_init();
     power_management_init();
     init_fstorage();	// Must call before the ble_init().
@@ -87,8 +88,6 @@ int main(void)
     ble_init();
 	wdt_init();
     
-    NRF_LOG_INFO("Hello USB!");
-    NRF_LOG_FLUSH();
     usb21_init();
     ikv_spim_init();
     lcm_init();
